@@ -5,12 +5,28 @@ namespace EnemyBehaviours
 {
     public class MoveTowards : MonoBehaviour
     {
-        public Transform moveTo;
+        private Transform moveTo;
         public float keepingDistanceRange = 5.0f;
         public float moveSpeed = 5.0f;
+        private PlayerController[] players;
+
+        private void Start()
+        {
+            players = FindObjectsOfType<PlayerController>();
+        }
 
         private void Update()
         {
+            float closestDistance = float.MaxValue;
+            foreach (var player in players)
+            {
+                float distance = Vector2.Distance(transform.position, player.transform.position);
+                if (distance < closestDistance)
+                {
+                    moveTo = player.transform;
+                    closestDistance = distance;
+                }
+            }
 
             if (Vector2.Distance(transform.position, moveTo.position) <= keepingDistanceRange)
             {

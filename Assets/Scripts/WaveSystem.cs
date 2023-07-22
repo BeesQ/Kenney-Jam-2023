@@ -1,4 +1,5 @@
 using System;
+using Enums;
 using UnityEngine;
 using Random = System.Random;
 
@@ -11,6 +12,7 @@ namespace DefaultNamespace
         public float duration;
         public int enemiesCounter;
         public float nextWaveDelay;
+        public ColorClass color; 
         
         [HideInInspector]
         public float spawnRate = 0.0f;
@@ -63,7 +65,12 @@ namespace DefaultNamespace
                         currentWave.enemiesCounter -= 1;
 
                         int randomSpawnPointIdx = rng.Next(0, spawnPoints.Length);
-                        Instantiate(currentWave.enemy, spawnPoints[randomSpawnPointIdx].position, Quaternion.identity);
+                        GameObject spawnedEnemy = Instantiate(currentWave.enemy, spawnPoints[randomSpawnPointIdx].position, Quaternion.identity);
+                        
+                        if (spawnedEnemy.TryGetComponent(out Enemy enemy))
+                        {
+                            enemy.SetColor(currentWave.color);
+                        }
                     }
                 }
                 
