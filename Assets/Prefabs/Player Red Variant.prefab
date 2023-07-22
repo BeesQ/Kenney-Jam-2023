@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 6123645278660525672}
-  weaponPosition: {fileID: 0}
+  weaponPosition: {fileID: 484825141002109058}
   shieldDelay: 3
   attackDelay: 1
 --- !u!4 &8935027715235327927 stripped
