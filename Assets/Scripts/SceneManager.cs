@@ -7,7 +7,6 @@ public class SceneManager : MonoBehaviour
 {
     public void LoadNextScene()
     {
-        // Get the current scene
         var nextSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1;
         var scenesAmount = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
 
