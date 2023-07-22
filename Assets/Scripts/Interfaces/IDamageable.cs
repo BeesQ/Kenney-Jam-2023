@@ -1,3 +1,5 @@
+using Enums;
+
 namespace Interfaces
 {
     public interface IDamageable

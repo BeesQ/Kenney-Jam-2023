@@ -10,20 +10,20 @@ public class SoundManager : MonoBehaviour
 
 
 
-    private static SoundManager instance;
+    private static SoundManager _instance;
     public static SoundManager Instance
     {
         get
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = FindObjectOfType<SoundManager>();
-                if (instance == null)
+                _instance = FindObjectOfType<SoundManager>();
+                if (_instance == null)
                 {
                     Debug.LogError("SoundManager instance not found in the scene.");
                 }
             }
-            return instance;
+            return _instance;
         }
     }
 
@@ -41,11 +41,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlayClickSound()
     {
-        Instance.GetComponent<AudioSource>().PlayOneShot(GetRandomClickButtonSound());
+        _instance.GetComponent<AudioSource>().PlayOneShot(GetRandomClickButtonSound());
     }
 
     public void PlayHoverSound()
     {
-        Instance.GetComponent<AudioSource>().PlayOneShot(GetRandomHoverButtonSound());
+        _instance.GetComponent<AudioSource>().PlayOneShot(GetRandomHoverButtonSound());
     }
 }

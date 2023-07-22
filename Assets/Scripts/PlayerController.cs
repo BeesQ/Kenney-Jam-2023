@@ -1,17 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enums;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
-public enum ColorClass
-{
-    RED,
-    BLUE
-}
 public class PlayerController : MonoBehaviour
 {
     private int playerID;
@@ -26,11 +22,11 @@ public class PlayerController : MonoBehaviour
 
     private string currentControlScheme;
 
-    [FormerlySerializedAs("_playerType")] [SerializeField]
-    private ColorClass colorClass;
+    [SerializeField]
+    private ColorClass _colorClass;
     public ColorClass ColorClass
     {
-        get => colorClass;
+        get => _colorClass;
     }
 
 
@@ -72,7 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            damageable.Damage(10, colorClass);
+            damageable.Damage(10, _colorClass);
         }
     }
 

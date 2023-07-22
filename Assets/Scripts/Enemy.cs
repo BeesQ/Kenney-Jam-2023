@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enums;
 using Interfaces;
 using UnityEngine;
 
@@ -17,5 +18,7 @@ public class Enemy : MonoBehaviour, IDamageable
         if(col != _color) return;
         
         _health -= amount;
+        
+        SoundManager.Instance.PlayClickSound();
     }
 }
