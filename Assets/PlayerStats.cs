@@ -6,18 +6,24 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField]
     private float _maxHealth = 100;
+    public float MaxHealth => _maxHealth;
     
     [SerializeField]
     private float _health = 100;
+    public float Health => _health;
     
     [SerializeField]
     private float _movementSpeed = 10.0f;
+    public float MovementSpeed => _movementSpeed;
     
     [SerializeField]
     private float _damage = 10.0f;
-    
+
+    public float Damage => _damage;
+
     [SerializeField]
     private float _attackSpeed = 2.0f;
+    public float AttackSpeed => _attackSpeed;
 
     public void AddHealth(float amount)
     {
