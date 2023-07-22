@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    [SerializeField]
     private float _maxHealth = 100;
+    
+    [SerializeField]
     private float _health = 100;
+    
+    [SerializeField]
     private float _movementSpeed = 10.0f;
+    
+    [SerializeField]
     private float _damage = 10.0f;
+    
+    [SerializeField]
     private float _attackSpeed = 2.0f;
 
     public void AddHealth(float amount)
