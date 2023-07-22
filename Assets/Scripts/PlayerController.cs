@@ -1,9 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
+public enum ColorClass
+{
+    RED,
+    BLUE
+}
 public class PlayerController : MonoBehaviour
 {
     private int playerID;
@@ -18,17 +26,21 @@ public class PlayerController : MonoBehaviour
 
     private string currentControlScheme;
 
+    [FormerlySerializedAs("_playerType")] [SerializeField]
+    private ColorClass colorClass;
+    public ColorClass ColorClass
+    {
+        get => colorClass;
+    }
 
 
     public void SetupPlayer(int newPlayerID)
     {
         playerID = newPlayerID;
-
         currentControlScheme = playerInput.currentControlScheme;
     }
 
-
-
+    
     void Update()
     {
         UpdatePlayerMovement();
@@ -44,8 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         InputActionRebindingExtensions.RemoveAllBindingOverrides(playerInput.currentActionMap);
     }
-
-
+    
 
     public void EnableGameplayControls()
     {
@@ -57,6 +68,13 @@ public class PlayerController : MonoBehaviour
         playerInput.SwitchCurrentActionMap(actionMapMenuControls);
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.TryGetComponent(out IDamageable damageable))
+        {
+            damageable.Damage(10, colorClass);
+        }
+    }
 
 
     // Events
@@ -75,9 +93,7 @@ public class PlayerController : MonoBehaviour
             RemoveAllBindingOverrides();
         }
     }
-
-
-
+    
     // Get
     public int GetPlayerID()
     {

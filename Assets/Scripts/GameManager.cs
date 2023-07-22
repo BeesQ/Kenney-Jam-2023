@@ -32,7 +32,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        SetupBasedOnGameState();
+        // SetupBasedOnGameState();
     }
 
     void SetupBasedOnGameState()
