@@ -30,9 +30,24 @@ public class GameManager : Singleton<GameManager>
     private List<PlayerController> activePlayerControllers;
     private PlayerController focusedPlayerController;
 
-    void Start()
+    // Level
+    public bool IsLevelComplete { get; private set; }
+
+
+    IEnumerator Start()
     {
+        yield return new WaitForSeconds(3);
+        IsLevelComplete = true;
         // SetupBasedOnGameState();
+    }
+
+    private void Update()
+    {
+        if (IsLevelComplete)
+        {
+            EventManager.Instance.TriggerLevelCompleteEvent();
+            IsLevelComplete = false;
+        }
     }
 
     void SetupBasedOnGameState()
