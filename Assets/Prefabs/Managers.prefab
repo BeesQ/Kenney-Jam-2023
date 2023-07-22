@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61839a22e5265f2499107a9e50cd5870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGameMode: 1
+  currentGameMode: 0
   inScenePlayer: {fileID: 0}
   playerPrefab: {fileID: 3257981375557385843, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
   numberOfPlayers: 2
@@ -649,6 +649,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &4765172507566822442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8672667130332264624}
+  - component: {fileID: 7933441729189805525}
+  m_Layer: 0
+  m_Name: GridManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8672667130332264624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765172507566822442}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6538175650776178120}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7933441729189805525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765172507566822442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a415ddd86e81404bac60178e7422455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  newTile:
+  - {fileID: 11400000, guid: d06f010aea3c49d409a3e3efc1db552a, type: 2}
+  - {fileID: 11400000, guid: f3c337cf8a44e654c90a575a617d7b55, type: 2}
 --- !u!1 &5191214550617110349
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +726,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5150849985941380267}
+  - {fileID: 8672667130332264624}
   - {fileID: 5535607538335525600}
   - {fileID: 2166074626344923247}
   m_Father: {fileID: 0}

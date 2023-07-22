@@ -50,3 +50,6 @@ TagManager:
   - name: NPC
     uniqueID: 837152745
     locked: 0
+  - name: Solid
+    uniqueID: 6140043
+    locked: 0
