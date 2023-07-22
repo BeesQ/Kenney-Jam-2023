@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
-  _color: 0
+  _color: 1
 --- !u!4 &1008839222
 Transform:
   m_ObjectHideFlags: 0
@@ -543,6 +543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515939946645937543, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+      propertyPath: _colorClass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2626900000030980860, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: m_Offset.x
       value: 2.26
@@ -781,7 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
-  _color: 1
+  _color: 2
 --- !u!4 &1951552066
 Transform:
   m_ObjectHideFlags: 0
@@ -3961,6 +3965,10 @@ PrefabInstance:
     - target: {fileID: 515939946645937543, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: colorClass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 515939946645937543, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+      propertyPath: _colorClass
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 515939946645937543, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: _playerType
