@@ -133,19 +133,8 @@
                 },
                 {
                     "name": "",
-                    "id": "3e6d6425-a990-4434-b58d-57464db363d4",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b12426a0-38ab-4d90-95e0-6840fcd30db6",
-                    "path": "<Keyboard>/e",
+                    "path": "<Mouse>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard And Mouse",
