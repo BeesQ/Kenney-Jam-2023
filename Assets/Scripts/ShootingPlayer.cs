@@ -59,7 +59,7 @@ public class ShootingPlayer : MonoBehaviour
 
     void ShootArrow(InputAction.CallbackContext context)
     {
-        Vector3 mouseDir = transform.position.GetMouseDirectionVector();
+        Vector3 mouseDir = bow.transform.position.GetMouseDirectionVector();
         GameObject arrow = Instantiate(arrowPrefab, bow.transform.position, bow.transform.rotation);
         Arrow arrowComponent = arrow.GetComponent<Arrow>();
         arrowComponent.Initialise(mouseDir, _color, _stats.Damage);
