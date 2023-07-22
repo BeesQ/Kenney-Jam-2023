@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            damageable.Damage(10, _colorClass);
+            damageable.Damage(5, _colorClass);
         }
     }
 

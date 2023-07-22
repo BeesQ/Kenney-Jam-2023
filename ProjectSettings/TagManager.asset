@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Canvas
+  - HealthBar Fill
   layers:
   - Default
   - TransparentFX
@@ -55,4 +57,7 @@ TagManager:
     locked: 0
   - name: Solid
     uniqueID: 6140043
+    locked: 0
+  - name: UI
+    uniqueID: 3173317607
     locked: 0
