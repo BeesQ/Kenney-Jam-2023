@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     [Header("Component References")]
     public Rigidbody2D playerRigidbody;
     public Collider2D playerCollider;
@@ -27,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         var myVelocity = movementDirection * movementSpeed * Time.fixedDeltaTime;
-        //var cameraBoundsCollider = CameraManager.Instance.Confiner2D.m_BoundingShape2D;
-
         
         var camera = CameraManager.Instance.followPlayerCamera;
         float cameraHeight = 2f * camera.m_Lens.OrthographicSize;
@@ -37,20 +34,10 @@ public class PlayerMovement : MonoBehaviour
         var cameraMinBound = (Vector2)camera.transform.position - new Vector2(cameraWidth, cameraHeight) * 0.5f;
         var cameraMaxBound = (Vector2)camera.transform.position + new Vector2(cameraWidth, cameraHeight) * 0.5f;
 
-        Vector2 buffer = Vector2.one;
         cameraMinBound += new Vector2(0.5f, 0.8f);
-        //cameraMaxBound -= new Vector2();
-
-
-        //Vector3 clampedPosition = transform.position;
-        //clampedPosition.x = Mathf.Clamp(clampedPosition.x, cameraMinBound.x + playerCollider.bounds.extents.x, cameraMaxBound.x - playerCollider.bounds.extents.x);
-        //clampedPosition.y = Mathf.Clamp(clampedPosition.y, cameraMinBound.y + playerCollider.bounds.extents.y, cameraMaxBound.y - playerCollider.bounds.extents.y);
 
         var isOnRightSide = transform.position.x + playerCollider.bounds.extents.x > cameraMaxBound.x;
         var isOnLeftSide = transform.position.x + playerCollider.bounds.extents.x < cameraMinBound.x;
-
-        var isOnTopSide = transform.position.y + playerCollider.bounds.extents.y > cameraMaxBound.y;
-        var isOnBottomSide = transform.position.y + playerCollider.bounds.extents.y < cameraMinBound.y;
         if (myVelocity.x > 0 && isOnRightSide)
         {
             myVelocity.x = Vector2.zero.x;
@@ -60,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
             myVelocity.x = Vector2.zero.x;
         }
 
+        var isOnTopSide = transform.position.y + playerCollider.bounds.extents.y > cameraMaxBound.y;
+        var isOnBottomSide = transform.position.y + playerCollider.bounds.extents.y < cameraMinBound.y;
         if (myVelocity.y > 0 && isOnTopSide)
         {
             myVelocity.y = Vector2.zero.y;
@@ -68,11 +57,6 @@ public class PlayerMovement : MonoBehaviour
         {
             myVelocity.y = Vector2.zero.y;
         }
-        //else if (transform.position.y < cameraBounds.minY + (height / 2) && newVelocity.y < 0)
-        //{
-        //    myVelocity = Vector2.zero;
-        //}
-        //transform.position = clampedPosition;
 
         playerRigidbody.velocity = myVelocity;
     }

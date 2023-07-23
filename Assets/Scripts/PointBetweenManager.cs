@@ -13,7 +13,6 @@ public class PointBetweenManager : Singleton<PointBetweenManager>
         
         Vector3 pointBetweenObjects = GetPointBetweenPlayers();
         objectBetween.transform.position = pointBetweenObjects;
-        //Debug.Log(GetLongestDistanceBetweenPlayers(playersToCalculate));
     }
 
     public Vector3 GetPointBetweenPlayers()
