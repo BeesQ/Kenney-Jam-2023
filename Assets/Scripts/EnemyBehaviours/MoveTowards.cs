@@ -5,46 +5,40 @@ using UnityEngine;
 
 namespace EnemyBehaviours
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class MoveTowards : MonoBehaviour
     {
         private Transform moveTo;
         private float keepingDistanceRange = 5.0f;
         private float moveSpeed = 5.0f;
         public EnemyStats stats;
-        private PlayerController[] players;
+        private Rigidbody2D rb;
 
         private void Start()
         {
-            players = FindObjectsOfType<PlayerController>();
             moveSpeed = stats.MovementSpeed;
             keepingDistanceRange = stats.KeepingDistanceRange;
+            rb = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
-            float closestDistance = float.MaxValue;
-            foreach (var player in players)
-            {
-                float distance = Vector2.Distance(transform.position, player.transform.position);
-                if (distance < closestDistance)
-                {
-                    moveTo = player.transform;
-                    closestDistance = distance;
-                }
-            }
 
-            if (Vector2.Distance(transform.position, moveTo.position) <= keepingDistanceRange)
+            (float dist, PlayerController closestPlayer) = PlayersManager.Instance.GetClosestPlayerToPos(transform.position);
+            moveTo = closestPlayer.transform;
+            
+            Vector3 diff = (moveTo.position - transform.position).normalized;
+            
+            if (dist <= keepingDistanceRange)
             {
-                Vector3 diff = (moveTo.position - transform.position).normalized;
-                transform.position = Vector2.MoveTowards(transform.position, transform.position - diff, Time.deltaTime * moveSpeed);
+                rb.velocity = -diff * (stats.MovementSpeed);
                 return;
             }
 
             float deadZoneSize = 0.1f;
-            if (Vector2.Distance(transform.position, moveTo.position) > keepingDistanceRange + deadZoneSize)
+            if (dist > keepingDistanceRange + deadZoneSize)
             {
-                transform.position =
-                    Vector2.MoveTowards(transform.position, moveTo.position, Time.deltaTime * moveSpeed);
+                rb.velocity = diff * (stats.MovementSpeed);
             }
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6251575913850805929}
   - component: {fileID: 8553057634879376763}
   m_Layer: 0
-  m_Name: Cyclop
+  m_Name: Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5992472717254100341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7168584832934949078}
@@ -123,10 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79501390c73daf6448e1ac69abd0dfc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
-  _health: 20
-  _movementSpeed: 2
+  _maxHealth: 10
+  _health: 10
+  _movementSpeed: 4
   _damage: 10
+  _attackSpeed: 1
   _keepingDistanceRange: 0
 --- !u!50 &8553057634879376763
 Rigidbody2D:
@@ -228,7 +229,7 @@ SpriteRenderer:
   m_SortingLayerID: 837152745
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -14231718, guid: 60bd9c5892d0a7742a9a50ef87fb67a6, type: 3}
+  m_Sprite: {fileID: -1230595569, guid: 60bd9c5892d0a7742a9a50ef87fb67a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

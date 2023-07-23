@@ -21,9 +21,9 @@ public class EnemyStats : MonoBehaviour
 
     public float Damage => _damage;
 
-    /*[SerializeField]
-     private float _attackSpeed = 2.0f;
-     public float AttackSpeed => _attackSpeed;*/
+    [SerializeField]
+     private float _attackSpeed = 0.5f;
+     public float AttackSpeed => _attackSpeed;
 
     [SerializeField]
     private float _keepingDistanceRange = 2.0f;

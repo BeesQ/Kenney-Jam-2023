@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         playerInput.SwitchCurrentActionMap(actionMapMenuControls);
     }
-
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         bool isBlocked = false;
@@ -135,6 +135,11 @@ public class PlayerController : MonoBehaviour, IDamageable
             {
                 damageable.Damage(stats.Damage, _colorClass);
             }
+        }
+        
+        if (col.gameObject.TryGetComponent(out IConsumable consumable))
+        {
+            consumable.ApplyEffects(stats);
         }
     }
 

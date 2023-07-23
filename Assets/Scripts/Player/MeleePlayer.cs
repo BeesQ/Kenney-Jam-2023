@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -74,5 +75,10 @@ public class MeleePlayer : MonoBehaviour
     void DisableAttack()
     {
         weaponCollider.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        _input.Disable();
     }
 }

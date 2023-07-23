@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enums;
@@ -18,14 +19,21 @@ public class ShootingPlayer : MonoBehaviour
     [SerializeField] private GameObject arrowPrefab;
     
     private BluePlayerInput _input;
-    
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _input = new BluePlayerInput();
-        _input.Enable();
         _input.PlayerControls.Attack.performed += ShootArrow;
+    }
+
+    private void OnEnable()
+    {
+        _input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _input.Disable();
     }
 
     // Update is called once per frame

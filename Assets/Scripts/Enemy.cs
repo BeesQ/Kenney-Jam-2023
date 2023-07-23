@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enums;
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     [SerializeField]
     private ColorClass _color;
+
+    private float _attackCooldown = 0.0f; 
 
     void Start()
     {
@@ -40,9 +43,21 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void Update()
     {
-        if (col.gameObject.TryGetComponent(out IDamageable damageable))
+        _attackCooldown += Time.deltaTime;
+    }
+
+    private void  OnCollisionStay2D(Collision2D col)
+    {
+        if(col.collider.gameObject.CompareTag("Enemy")) return;
+
+        bool damageOnCooldown = _attackCooldown < stats.AttackSpeed;
+        if(damageOnCooldown) return;
+
+        _attackCooldown = 0.0f;
+
+        if (col.collider.gameObject.TryGetComponent(out IDamageable damageable))
         {
             damageable.Damage(stats.Damage, _color);
         }
@@ -50,7 +65,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Damage(float amount, ColorClass col)
     {
-        if(col != _color) return;
+        if(col != _color && _color != ColorClass.NEUTRAL) return;
         
         _health -= amount;
         healthSlider.value = _health;
