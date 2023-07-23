@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class ChestManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _chestPrefab;
+
+    [SerializeField] private WaveSystem _waveSystem;
+    [SerializeField] private Transform _chestSpawnPosition;
+
+    private void Start()
     {
-        
+        _waveSystem.OnAllWavesEnd += WaveSystemOnOnAllWavesEnd;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void WaveSystemOnOnAllWavesEnd(object sender, AllWavesEndEventArgs e)
     {
-        
+        Instantiate(_chestPrefab, _chestSpawnPosition.position, Quaternion.identity);
     }
 }

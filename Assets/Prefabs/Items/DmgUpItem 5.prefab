@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 6140043
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 430822078, guid: 60bd9c5892d0a7742a9a50ef87fb67a6, type: 3}
+  m_Sprite: {fileID: 2105784421, guid: 60bd9c5892d0a7742a9a50ef87fb67a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3172375559371250797}
   - component: {fileID: 1446953997034441625}
   m_Layer: 0
-  m_Name: DmgUpItem
+  m_Name: DmgUpItem 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ Transform:
   m_Children:
   - {fileID: 8531573172063847856}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9136713595297531678
 MonoBehaviour:
@@ -132,7 +132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dedf73c6f7947eaa9a2081152af83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemBuffs: {fileID: 11400000, guid: b631fac4b2e584588902e7078ab46c56, type: 2}
+  maxHealthBuff: 0
+  healthBuff: 0
+  movementSpeedBuff: 0
+  damageBuff: 20
+  attackSpeedBuff: 0
 --- !u!61 &6418928075693005878
 BoxCollider2D:
   m_ObjectHideFlags: 0
