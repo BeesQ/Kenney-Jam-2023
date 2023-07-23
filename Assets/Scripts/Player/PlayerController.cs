@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private MeleePlayer meleePlayer;
 
     //private float maxHealth = 100f;
-    private float _health = 100.0f;
+    //private float _health = 100.0f;
 
     [SerializeField]
     public Slider healthSlider;
@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         if(_colorClass == ColorClass.RED)
         meleePlayer = GetComponent<MeleePlayer>();
 
-        _health = stats.MaxHealth;
+        //_health = stats.MaxHealth;
         healthSlider.maxValue = stats.MaxHealth;
-        healthSlider.value = _health;
+        healthSlider.value = stats.Health;
 
         var sliderChild = healthSlider.transform.GetChild(1);
         switch (_colorClass)
@@ -73,11 +73,13 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (_colorClass == ColorClass.RED) isBlocked = meleePlayer.isBlocking;
         if (!isBlocked)
         {
-            _health -= amount;
-            healthSlider.value = _health;
+            //_health -= amount;
+            stats.AddHealth(-amount);
+            //stats.Health -= amount;
+            healthSlider.value = stats.Health;
             SoundManager.Instance.PlayClickSound();
 
-            if (_health <= 0)
+            if (stats.Health <= 0)
             {
                 // Play some sound then kill
                 Kill();
@@ -140,6 +142,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (col.gameObject.TryGetComponent(out IConsumable consumable))
         {
             consumable.ApplyEffects(stats);
+            healthSlider.maxValue = stats.MaxHealth;
+            healthSlider.value = stats.Health;
         }
     }
 
