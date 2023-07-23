@@ -53,7 +53,8 @@ public class MeleePlayer : MonoBehaviour
     }
 
     void ActivateBlock(InputAction.CallbackContext callbackContext)
-    { 
+    {
+        SoundManager.Instance.PlayBlockSound();
         shield.SetActive(true);
         isBlocking = true;
         Invoke("DisableBlock",shieldDelay);
@@ -63,6 +64,7 @@ public class MeleePlayer : MonoBehaviour
     {
         if (!shield.activeSelf)
         {
+            SoundManager.Instance.PlayMeleeAttackSound();
             weaponCollider.enabled = true;
             Invoke("DisableAttack", attackDelay);
         }
