@@ -22,7 +22,7 @@ public class MeleePlayer : MonoBehaviour
 
     public bool isBlocking = false;
 
-    [SerializeField] GameObject attackParticles = null;
+    [SerializeField] ParticleSystem attackParticles;
 
     void Start()
     {
@@ -65,6 +65,7 @@ public class MeleePlayer : MonoBehaviour
     {
         if (!shield.activeSelf)
         {
+            attackParticles.Play();
             SoundManager.Instance.PlayMeleeAttackSound();
             weaponCollider.enabled = true;
             Invoke("DisableAttack", attackDelay);
