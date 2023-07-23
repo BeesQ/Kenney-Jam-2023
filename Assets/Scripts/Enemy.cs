@@ -38,6 +38,14 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.TryGetComponent(out IDamageable damageable))
+        {
+            damageable.Damage(5, _color);
+        }
+    }
+
     public void Damage(float amount, ColorClass col)
     {
         if(col != _color) return;

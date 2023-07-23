@@ -257,6 +257,10 @@ PrefabInstance:
       propertyPath: _colorClass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 515939946645937543, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 2303020942875932477}
     - target: {fileID: 3257981375557385843, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: m_Name
       value: Player Red Variant
@@ -334,6 +338,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3949922856909344901}
   m_SourcePrefab: {fileID: 100100000, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+--- !u!114 &2303020942875932477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6674232345263978255, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+  m_PrefabInstance: {fileID: 4857795945276244018}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7952503033775636033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3257981375557385843, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
@@ -352,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 6123645278660525672}
-  weaponPosition: {fileID: 0}
+  weaponPosition: {fileID: 484825141002109058}
   shieldDelay: 3
   attackDelay: 1
 --- !u!4 &8935027715235327927 stripped
