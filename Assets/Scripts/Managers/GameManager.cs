@@ -39,10 +39,11 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        _waveSystem.OnAllWavesEnd += (sender, args) =>
-        {
-            IsLevelComplete = true;
-        };
+        IsLevelComplete = true;
+        //_waveSystem.OnAllWavesEnd += (sender, args) =>
+        //{
+        //    IsLevelComplete = true;
+        //};
     }
 
     private void Update()
