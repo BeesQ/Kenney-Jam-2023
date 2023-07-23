@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5346928570158683391}
   - component: {fileID: 6508380638042253933}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: WeaponPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8787601032755561912}
   - component: {fileID: 8604527021742953979}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927758673515902392}
   - component: {fileID: 1456787105186372983}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -257,6 +257,14 @@ PrefabInstance:
       propertyPath: _colorClass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1863822798415454547, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863822798415454547, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3257981375557385843, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: m_Name
       value: Player Red Variant
@@ -283,11 +291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4077380484711657349, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4077380484711657349, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4077380484711657349, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: m_LocalPosition.y

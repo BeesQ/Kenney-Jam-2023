@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8894566848864962922}
   - component: {fileID: 5833414428308547560}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,9 +104,21 @@ PrefabInstance:
       propertyPath: m_Actions
       value: 
       objectReference: {fileID: -944628639613478452, guid: 5218ce094c7074dde8578ff32f4baeba, type: 3}
+    - target: {fileID: 3924445709830588064, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027765364854225952, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027765364854225952, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4077380484711657349, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4077380484711657349, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
       propertyPath: m_LocalPosition.x
