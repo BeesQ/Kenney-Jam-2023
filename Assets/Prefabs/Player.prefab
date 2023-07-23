@@ -120,6 +120,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5523338888414058238}
+  - {fileID: 8261709768470160291}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,6 +151,9 @@ MonoBehaviour:
   playerMovement: {fileID: 6641751186143142906}
   playerInput: {fileID: 3924445709830588064}
   _colorClass: 0
+  maxHealth: 10
+  healthSlider: {fileID: 6674232345263978255}
+  _color: 0
 --- !u!114 &3924445709830588064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +231,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e773b1f9-ce5b-4fa2-9c1f-d194202c43b7
     m_ActionName: Menu Controls/TogglePause[/Keyboard/p,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84691b7d-6412-43a8-a3fe-17d6942768a7
+    m_ActionName: Player Controls/Block[/Keyboard/ctrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Controls

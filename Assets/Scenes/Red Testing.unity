@@ -519,11 +519,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1 &1540378002 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 484825141002109058, guid: b124f89ebad631e4baca690d8a2bd5a6, type: 3}
-  m_PrefabInstance: {fileID: 2545543864092879676}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2049609849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,6 +5371,10 @@ PrefabInstance:
       propertyPath: moveTo
       value: 
       objectReference: {fileID: 2545543864092879677}
+    - target: {fileID: 5051864056747964025, guid: 8a3340bcacd256f46ad8f8ccc6bcde20, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5992472717254100341, guid: 8a3340bcacd256f46ad8f8ccc6bcde20, type: 3}
       propertyPath: m_Name
       value: Cyclop
@@ -5437,10 +5436,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3949922856909344901, guid: b124f89ebad631e4baca690d8a2bd5a6, type: 3}
-      propertyPath: weaponPosition
-      value: 
-      objectReference: {fileID: 1540378002}
+    - target: {fileID: 2303020941151436514, guid: b124f89ebad631e4baca690d8a2bd5a6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303020941151436514, guid: b124f89ebad631e4baca690d8a2bd5a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7952503033775636033, guid: b124f89ebad631e4baca690d8a2bd5a6, type: 3}
       propertyPath: m_Name
       value: Player Red
@@ -34804,6 +34807,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2742353173951712022, guid: a35193645ee11b54aaa0482ee0faf618, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742353173951712022, guid: a35193645ee11b54aaa0482ee0faf618, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4757114747311905347, guid: a35193645ee11b54aaa0482ee0faf618, type: 3}
       propertyPath: m_RootOrder
       value: 1

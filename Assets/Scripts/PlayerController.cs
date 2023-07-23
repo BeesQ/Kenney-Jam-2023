@@ -7,8 +7,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable 
 {
     private int playerID;
     public PlayerMovement playerMovement;
@@ -29,6 +30,54 @@ public class PlayerController : MonoBehaviour
         get => _colorClass;
     }
 
+
+    private float maxHealth = 100f;
+    private float _health = 100.0f;
+
+    [SerializeField]
+    public Slider healthSlider;
+
+
+    void Start()
+    {
+        _health = maxHealth;
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = _health;
+
+        var sliderChild = healthSlider.transform.GetChild(1);
+        switch (_colorClass)
+        {
+            case ColorClass.RED:
+                sliderChild.GetComponent<Image>().color = new Color(255, 0, 0);
+                break;
+
+            case ColorClass.BLUE:
+                sliderChild.GetComponent<Image>().color = new Color(0, 0, 255);
+                break;
+
+            default:
+                sliderChild.GetComponent<Image>().color = new Color(0, 255, 0);
+                break;
+        }
+    }
+
+    public void Damage(float amount, ColorClass col)
+    {
+        _health -= amount;
+        healthSlider.value = _health;
+        SoundManager.Instance.PlayClickSound();
+
+        if (_health <= 0)
+        {
+            // Play some sound then kill
+            Kill();
+        }
+    }
+
+    public void Kill()
+    {
+        gameObject.SetActive(false);
+    }
 
     public void SetupPlayer(int newPlayerID)
     {
