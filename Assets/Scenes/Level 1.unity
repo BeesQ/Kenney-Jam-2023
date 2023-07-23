@@ -427,6 +427,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Red Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8398972438167682066, guid: b124f89ebad631e4baca690d8a2bd5a6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398972438167682066, guid: b124f89ebad631e4baca690d8a2bd5a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8935027715235327927, guid: b124f89ebad631e4baca690d8a2bd5a6, type: 3}
       propertyPath: m_RootOrder
       value: 5
