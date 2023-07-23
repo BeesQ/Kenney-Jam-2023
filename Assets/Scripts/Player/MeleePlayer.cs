@@ -22,7 +22,8 @@ public class MeleePlayer : MonoBehaviour
 
     public bool isBlocking = false;
 
-    // Start is called before the first frame update
+    [SerializeField] GameObject attackParticles = null;
+
     void Start()
     {
         _input = new RedPlayerInput();

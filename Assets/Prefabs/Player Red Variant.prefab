@@ -148,7 +148,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1881387781
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 430822078, guid: 60bd9c5892d0a7742a9a50ef87fb67a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1881387781
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -1965877412, guid: 60bd9c5892d0a7742a9a50ef87fb67a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -457,6 +457,7 @@ MonoBehaviour:
   shieldDelay: 3
   attackDelay: 1
   isBlocking: 0
+  attackParticles: {fileID: 2207258867551340722, guid: c81f07d79487b834a920966d0909924c, type: 3}
 --- !u!4 &8935027715235327927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4077380484711657349, guid: 4e7aa30546f9dc04ab8348f0ccb6fb4e, type: 3}
