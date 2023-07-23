@@ -27,6 +27,8 @@ public class DoorManager : MonoBehaviour
         var one = new Vector3Int(doorOffset.x - 1, doorOffset.y, 0);
         var two = new Vector3Int(doorOffset.x, doorOffset.y, 0);
         tilemap.SetTile(one, newTile[0]);
+
+        if (newTile.Count == 1) { return; }
         tilemap.SetTile(two, newTile[1]);
     }
 
