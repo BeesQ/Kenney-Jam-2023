@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackBoost
   m_EditorClassIdentifier: Assembly-CSharp::ItemBuffs
   maxHealthBuff: 0
-  healthBuff: 0
+  healthBuff: 1
   movementSpeedBuff: 0
   damageBuff: 5
   attackSpeedBuff: 0
