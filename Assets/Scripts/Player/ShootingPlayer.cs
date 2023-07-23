@@ -67,6 +67,7 @@ public class ShootingPlayer : MonoBehaviour
 
     void ShootArrow(InputAction.CallbackContext context)
     {
+        SoundManager.Instance.PlayArrowFireSound();
         Vector3 mouseDir = bow.transform.position.GetMouseDirectionVector();
         GameObject arrow = Instantiate(arrowPrefab, bow.transform.position, bow.transform.rotation);
         Arrow arrowComponent = arrow.GetComponent<Arrow>();

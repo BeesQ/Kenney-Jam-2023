@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         
         if (col.gameObject.TryGetComponent(out IConsumable consumable))
         {
+            SoundManager.Instance.PlayPickUpSound();
             consumable.ApplyEffects(stats);
             healthSlider.maxValue = stats.MaxHealth;
             healthSlider.value = stats.Health;
