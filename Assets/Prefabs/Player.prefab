@@ -152,6 +152,7 @@ MonoBehaviour:
   playerInput: {fileID: 3924445709830588064}
   _colorClass: 0
   healthSlider: {fileID: 4027765363385808383}
+  stats: {fileID: 6042440075404826617}
 --- !u!114 &3924445709830588064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 4560127544577231426}
   playerCollider: {fileID: 2626900000030980860}
-  movementSpeed: 200
+  stats: {fileID: 6042440075404826617}
 --- !u!50 &4560127544577231426
 Rigidbody2D:
   serializedVersion: 4
@@ -339,7 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _health: 100
-  _movementSpeed: 10
+  _movementSpeed: 200
   _damage: 10
   _attackSpeed: 2
 --- !u!1001 &6999821931607039460

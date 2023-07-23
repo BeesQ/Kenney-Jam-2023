@@ -8,11 +8,17 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D playerRigidbody;
     public Collider2D playerCollider;
 
-    [Header("Movement Settings")]
-    public float movementSpeed = 5f;
+    private float movementSpeed = 5f;
+
+    [SerializeField]
+    private PlayerStats stats;
 
     private Vector3 movementDirection;
 
+    void Start()
+    {
+        movementSpeed = stats.MovementSpeed;
+    }
     public void UpdateMovementData(Vector3 newMovementDirection)
     {
         movementDirection = newMovementDirection;

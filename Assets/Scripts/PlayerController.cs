@@ -31,17 +31,18 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
 
 
-    private float maxHealth = 100f;
+    //private float maxHealth = 100f;
     private float _health = 100.0f;
 
     [SerializeField]
     public Slider healthSlider;
+    public PlayerStats stats;
 
 
     void Start()
     {
-        _health = maxHealth;
-        healthSlider.maxValue = maxHealth;
+        _health = stats.MaxHealth;
+        healthSlider.maxValue = stats.MaxHealth;
         healthSlider.value = _health;
 
         var sliderChild = healthSlider.transform.GetChild(1);
@@ -117,7 +118,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (col.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            damageable.Damage(5, _colorClass);
+            damageable.Damage(stats.Damage, _colorClass);
         }
     }
 
