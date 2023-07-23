@@ -151,6 +151,9 @@ MonoBehaviour:
   playerMovement: {fileID: 6641751186143142906}
   playerInput: {fileID: 3924445709830588064}
   _colorClass: 0
+  maxHealth: 10
+  healthSlider: {fileID: 6674232345263978255}
+  _color: 0
 --- !u!114 &3924445709830588064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +460,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ab908595ae6ba4a819ff00ac708a65, type: 3}
+--- !u!114 &6674232345263978255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6251317029997291547, guid: 94ab908595ae6ba4a819ff00ac708a65, type: 3}
+  m_PrefabInstance: {fileID: 747176713233309460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8261709768470160291 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8717275630745353399, guid: 94ab908595ae6ba4a819ff00ac708a65, type: 3}

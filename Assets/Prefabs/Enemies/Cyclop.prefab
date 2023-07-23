@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 682777302959646670}
   - component: {fileID: 3144619242906724315}
   - component: {fileID: 5051864056747964025}
+  - component: {fileID: 6251575913850805929}
   m_Layer: 0
   m_Name: Cyclop
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   healthSlider: {fileID: 937733147005749754}
+  stats: {fileID: 6251575913850805929}
   _color: 1
 --- !u!114 &3144619242906724315
 MonoBehaviour:
@@ -65,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keepingDistanceRange: 1
   moveSpeed: 2
+  stats: {fileID: 6251575913850805929}
 --- !u!61 &5051864056747964025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,6 +113,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6251575913850805929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992472717254100341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79501390c73daf6448e1ac69abd0dfc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 20
+  _health: 20
+  _movementSpeed: 2
+  _damage: 10
+  _keepingDistanceRange: 1
 --- !u!1 &6029626262190693501
 GameObject:
   m_ObjectHideFlags: 0

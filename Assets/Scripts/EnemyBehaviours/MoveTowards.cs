@@ -8,13 +8,16 @@ namespace EnemyBehaviours
     public class MoveTowards : MonoBehaviour
     {
         private Transform moveTo;
-        public float keepingDistanceRange = 5.0f;
-        public float moveSpeed = 5.0f;
+        private float keepingDistanceRange = 5.0f;
+        private float moveSpeed = 5.0f;
+        public EnemyStats stats;
         private PlayerController[] players;
 
         private void Start()
         {
             players = FindObjectsOfType<PlayerController>();
+            moveSpeed = stats.MovementSpeed;
+            keepingDistanceRange = stats.KeepingDistanceRange;
         }
 
         private void Update()

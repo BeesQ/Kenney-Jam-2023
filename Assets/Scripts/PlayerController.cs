@@ -30,13 +30,13 @@ public class PlayerController : MonoBehaviour, IDamageable
         get => _colorClass;
     }
 
-    [SerializeField]
-    private float maxHealth = 10f;
-    private float _health = 10.0f;
-    public Slider healthSlider;
+
+    private float maxHealth = 100f;
+    private float _health = 100.0f;
 
     [SerializeField]
-    private ColorClass _color;
+    public Slider healthSlider;
+
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         healthSlider.value = _health;
 
         var sliderChild = healthSlider.transform.GetChild(1);
-        switch (_color)
+        switch (_colorClass)
         {
             case ColorClass.RED:
                 sliderChild.GetComponent<Image>().color = new Color(255, 0, 0);
@@ -63,8 +63,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void Damage(float amount, ColorClass col)
     {
-        if (col != _color) return;
-
         _health -= amount;
         healthSlider.value = _health;
         SoundManager.Instance.PlayClickSound();
@@ -78,7 +76,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void Kill()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void SetupPlayer(int newPlayerID)

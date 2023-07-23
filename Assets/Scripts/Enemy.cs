@@ -7,18 +7,20 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
-    [SerializeField]
-    private float maxHealth = 10f;
+    //private float maxHealth = 10f;
     private float _health = 10.0f;
+
+    [SerializeField]
     public Slider healthSlider;
+    public EnemyStats stats;
 
     [SerializeField]
     private ColorClass _color;
 
     void Start()
     {
-        _health = maxHealth;
-        healthSlider.maxValue = maxHealth;
+        _health = stats.MaxHealth;
+        healthSlider.maxValue = stats.MaxHealth;
         healthSlider.value = _health;
 
         var sliderChild = healthSlider.transform.GetChild(1);
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if (col.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            damageable.Damage(5, _color);
+            damageable.Damage(stats.Damage, _color);
         }
     }
 
