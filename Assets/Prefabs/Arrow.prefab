@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 850529202791574362}
   - component: {fileID: 3936877353101930105}
   - component: {fileID: 865031003687270745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 8799682960898820143}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &850529202791574362
 BoxCollider2D:
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8799682960898820143}
   - component: {fileID: 9009247595913765542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
