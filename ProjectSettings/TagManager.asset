@@ -50,6 +50,9 @@ TagManager:
   - name: Floor
     uniqueID: 3502104125
     locked: 0
+  - name: Decorations
+    uniqueID: 1573850773
+    locked: 0
   - name: Player
     uniqueID: 2413579515
     locked: 0
