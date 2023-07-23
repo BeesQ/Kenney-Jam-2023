@@ -65,4 +65,9 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
     }
+
+    public void SetColor(ColorClass color)
+    {
+        _color = color;
+    }
 }
