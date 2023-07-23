@@ -88,20 +88,23 @@ namespace DefaultNamespace
                 currentWaveIdx += 1;
             }
 
-            if (AllWavesSpawnedEverything())
+            if (NoEnemiesLeft())
             {
                 OnAllWavesEnd?.Invoke(this, new AllWavesEndEventArgs() { timeToComplete = waveTimer});
                 Destroy(this.gameObject);
             }
         }
 
-        public bool AllWavesSpawnedEverything()
+        public bool NoEnemiesLeft()
         {
             foreach (var wave in _waves)
             {
                 if (wave.enemiesCounter != 0) return false;
             }
-            return true;
+
+            Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+            return enemies.Length == 0;
         }
     }
 }
