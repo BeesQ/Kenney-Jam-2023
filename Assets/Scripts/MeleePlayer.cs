@@ -14,11 +14,12 @@ public class MeleePlayer : MonoBehaviour
     private RedPlayerInput _input;
     private Collider2D weaponCollider;
 
-    float timer;
     float angle;
     public float shieldDelay = 3;
     public float attackDelay = 0.01f;
     private Vector2 inputMovementDirection;
+
+    public bool isBlocking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,7 @@ public class MeleePlayer : MonoBehaviour
     void ActivateBlock(InputAction.CallbackContext callbackContext)
     { 
         shield.SetActive(true);
+        isBlocking = true;
         Invoke("DisableBlock",shieldDelay);
     }
 
@@ -66,15 +68,11 @@ public class MeleePlayer : MonoBehaviour
     }
     void DisableBlock()
     {
+        isBlocking = false;
         shield.SetActive(false);
     }
     void DisableAttack()
     {
         weaponCollider.enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         get => _colorClass;
     }
 
+    private MeleePlayer meleePlayer;
 
     //private float maxHealth = 100f;
     private float _health = 100.0f;
@@ -41,6 +42,9 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Start()
     {
+        if(_colorClass == ColorClass.RED)
+        meleePlayer = GetComponent<MeleePlayer>();
+
         _health = stats.MaxHealth;
         healthSlider.maxValue = stats.MaxHealth;
         healthSlider.value = _health;
@@ -64,14 +68,20 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void Damage(float amount, ColorClass col)
     {
-        _health -= amount;
-        healthSlider.value = _health;
-        SoundManager.Instance.PlayClickSound();
-
-        if (_health <= 0)
+        bool isBlocked = false;
+        if(_colorClass == ColorClass.BLUE) isBlocked = false;
+        if (_colorClass == ColorClass.RED) isBlocked = meleePlayer.isBlocking;
+        if (!isBlocked)
         {
-            // Play some sound then kill
-            Kill();
+            _health -= amount;
+            healthSlider.value = _health;
+            SoundManager.Instance.PlayClickSound();
+
+            if (_health <= 0)
+            {
+                // Play some sound then kill
+                Kill();
+            }
         }
     }
 
@@ -116,9 +126,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.TryGetComponent(out IDamageable damageable))
+        bool isBlocked = false;
+        if (_colorClass == ColorClass.BLUE) isBlocked = false;
+        if (_colorClass == ColorClass.RED) isBlocked = meleePlayer.isBlocking;
+        if (!isBlocked)
         {
-            damageable.Damage(stats.Damage, _colorClass);
+            if (col.gameObject.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.Damage(stats.Damage, _colorClass);
+            }
         }
     }
 

@@ -386,6 +386,14 @@ PrefabInstance:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 1211837499}
+    - target: {fileID: 4482378802638201490, guid: 269b15c133b5e32449c73ece46d0e7a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000035762787
+      objectReference: {fileID: 0}
+    - target: {fileID: 6079751195222051273, guid: 269b15c133b5e32449c73ece46d0e7a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000035762787
+      objectReference: {fileID: 0}
     - target: {fileID: 7036562923544392677, guid: 269b15c133b5e32449c73ece46d0e7a5, type: 3}
       propertyPath: m_Name
       value: Cameras
@@ -5373,6 +5381,10 @@ PrefabInstance:
     - target: {fileID: 5992472717254100341, guid: 8a3340bcacd256f46ad8f8ccc6bcde20, type: 3}
       propertyPath: m_Name
       value: Cyclop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6251575913850805929, guid: 8a3340bcacd256f46ad8f8ccc6bcde20, type: 3}
+      propertyPath: _keepingDistanceRange
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7086521147576730224, guid: 8a3340bcacd256f46ad8f8ccc6bcde20, type: 3}
       propertyPath: m_RootOrder
