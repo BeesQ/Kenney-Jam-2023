@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,13 +11,19 @@ public class DoorManager : MonoBehaviour
     public List<TileBase> newTile;
 
     [SerializeField] bool shouldOpenDoor = true;
+    [SerializeField] bool isLastLevel = false;
     [SerializeField] Vector2Int doorOffset = Vector2Int.zero;
+    [SerializeField] Transform playerSpawnPoint = null;
+    [SerializeField] PolygonCollider2D cameraBounds = null;
+
+    PlayerController[] players = null;
 
     private bool canEndLevel = false;
 
     private void Start()
     {
         EventManager.Instance.OnLevelCompleteEvent += OpenTheDoor;
+        players = FindObjectsOfType<PlayerController>();
     }
 
     public void OpenTheDoor()
@@ -34,9 +41,19 @@ public class DoorManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (canEndLevel && other.collider.CompareTag("Player"))
+        if (isLastLevel && other.collider.CompareTag("Player"))
         {
             SceneManager.Instance.LoadNextScene();
+        }
+        if (canEndLevel && other.collider.CompareTag("Player"))
+        {
+            //SceneManager.Instance.LoadNextScene();
+            foreach (var player in players)
+            {
+                player.transform.position = playerSpawnPoint.position;
+            }
+
+            CameraManager.Instance.Confiner2D.m_BoundingShape2D = cameraBounds;
         }
     }
 }
