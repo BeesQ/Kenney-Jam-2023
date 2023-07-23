@@ -3,29 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
     [SerializeField] List<AudioSource> clickButtonSounds;
     [SerializeField] List<AudioSource> hoverButtonSounds;
 
 
-
-    private static SoundManager _instance;
-    public static SoundManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<SoundManager>();
-                if (_instance == null)
-                {
-                    Debug.LogError("SoundManager instance not found in the scene.");
-                }
-            }
-            return _instance;
-        }
-    }
 
     private AudioClip GetRandomClickButtonSound()
     {
@@ -41,11 +24,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlayClickSound()
     {
-        _instance.GetComponent<AudioSource>().PlayOneShot(GetRandomClickButtonSound());
+        Instance.GetComponent<AudioSource>().PlayOneShot(GetRandomClickButtonSound());
     }
 
     public void PlayHoverSound()
     {
-        _instance.GetComponent<AudioSource>().PlayOneShot(GetRandomHoverButtonSound());
+        Instance.GetComponent<AudioSource>().PlayOneShot(GetRandomHoverButtonSound());
     }
 }

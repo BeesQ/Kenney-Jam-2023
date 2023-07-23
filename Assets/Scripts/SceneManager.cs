@@ -3,25 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SceneManager : MonoBehaviour
+public class SceneManager : Singleton<SceneManager>
 {
-    private static SceneManager _instance;
-    public static SceneManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<SceneManager>();
-                if (_instance == null)
-                {
-                    Debug.LogError("SceneManager instance not found in the scene.");
-                }
-            }
-            return _instance;
-        }
-    }
-
     public void LoadNextScene()
     {
         var nextSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1;

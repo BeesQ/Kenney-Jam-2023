@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 4560127544577231426}
+  playerCollider: {fileID: 2626900000030980860}
   movementSpeed: 200
 --- !u!50 &4560127544577231426
 Rigidbody2D:
@@ -330,3 +331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcdf13953c594ed48083e533ca8d814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _health: 100
+  _movementSpeed: 10
+  _damage: 10
+  _attackSpeed: 2
