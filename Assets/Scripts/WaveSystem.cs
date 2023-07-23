@@ -49,7 +49,7 @@ namespace DefaultNamespace
                 wave.Initialise();
             }
 
-            OnAllWavesEnd += (sender, args) => { Debug.Log(args); };
+            OnAllWavesEnd += (sender, args) => { EventManager.Instance.TriggerLevelCompleteEvent(); };
         }
 
         public void Update()

@@ -15,6 +15,9 @@ public class DoorManager : MonoBehaviour
     [SerializeField] Vector2Int doorOffset = Vector2Int.zero;
     [SerializeField] Transform playerSpawnPoint = null;
     [SerializeField] PolygonCollider2D cameraBounds = null;
+    
+    [SerializeField] private GameObject currentLevel;
+    [SerializeField] private GameObject nextLevel;
 
     PlayerController[] players = null;
 
@@ -47,6 +50,12 @@ public class DoorManager : MonoBehaviour
         }
         if (canEndLevel && other.collider.CompareTag("Player"))
         {
+            if (nextLevel != null)
+            {
+                nextLevel.SetActive(true);   
+            }
+            currentLevel.SetActive(false);
+            
             //SceneManager.Instance.LoadNextScene();
             foreach (var player in players)
             {
