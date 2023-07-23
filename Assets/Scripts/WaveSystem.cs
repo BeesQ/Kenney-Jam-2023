@@ -27,12 +27,25 @@ namespace DefaultNamespace
             spawnTimer = spawnRate;
         }
     }
+
+    public class WaveEndEventArgs: EventArgs
+    {
+        public float wavesLeft;
+    }
+    
+    public class AllWavesEndEventArgs: EventArgs
+    {
+        public float timeToComplete;
+    }
+    
     public class WaveSystem : MonoBehaviour
     {
         public Transform[] spawnPoints;
         [SerializeField] private Wave[] _waves;
         private float waveTimer = 0.0f;
-        public Random rng;
+        private Random rng;
+        public event EventHandler OnAllWavesEnd;
+        public event EventHandler<WaveEndEventArgs> OnWaveEnd;
 
         private void Start()
         {
@@ -41,6 +54,9 @@ namespace DefaultNamespace
             {
                 wave.Initialise();
             }
+
+            OnAllWavesEnd += (sender, args) => { Debug.Log(args); };
+            OnWaveEnd += (sender, args) => { Debug.Log(args); };
         }
 
         public void Update()
@@ -71,6 +87,16 @@ namespace DefaultNamespace
                         {
                             enemy.SetColor(currentWave.color);
                         }
+
+                        if (currentWave.enemiesCounter == 0)
+                        {
+                            int wavesRemaining = 0;
+                            foreach (var wave in _waves)
+                            {
+                                if (wave.enemiesCounter != 0) wavesRemaining+=1;
+                            }
+                            OnWaveEnd?.Invoke(this, new WaveEndEventArgs(){ wavesLeft = wavesRemaining});
+                        }
                     }
                 }
                 
@@ -79,6 +105,20 @@ namespace DefaultNamespace
                 currentWaveIdx += 1;
             }
 
+            if (AllWavesSpawnedEverything())
+            {
+                OnAllWavesEnd?.Invoke(this, new AllWavesEndEventArgs() { timeToComplete = waveTimer});
+                Destroy(this.gameObject);
+            }
+        }
+
+        public bool AllWavesSpawnedEverything()
+        {
+            foreach (var wave in _waves)
+            {
+                if (wave.enemiesCounter != 0) return false;
+            }
+            return true;
         }
     }
 }
