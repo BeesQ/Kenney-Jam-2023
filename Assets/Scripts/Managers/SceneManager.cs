@@ -20,6 +20,17 @@ public class SceneManager : Singleton<SceneManager>
         }
     }
 
+    public void LoadGameOverScene()
+    {
+        var lastScene = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings - 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(lastScene);
+    }
+
+    public void RestartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
     public void ExitGame()
     {
         Application.Quit();

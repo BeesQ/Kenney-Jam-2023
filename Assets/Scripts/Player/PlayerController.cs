@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void Kill()
     {
+        SceneManager.Instance.LoadGameOverScene();
         gameObject.SetActive(false);
     }
 
