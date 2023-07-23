@@ -28,11 +28,6 @@ namespace DefaultNamespace
         }
     }
 
-    public class WaveEndEventArgs: EventArgs
-    {
-        public float wavesLeft;
-    }
-    
     public class AllWavesEndEventArgs: EventArgs
     {
         public float timeToComplete;
@@ -44,8 +39,7 @@ namespace DefaultNamespace
         [SerializeField] private Wave[] _waves;
         private float waveTimer = 0.0f;
         private Random rng;
-        public event EventHandler OnAllWavesEnd;
-        public event EventHandler<WaveEndEventArgs> OnWaveEnd;
+        public event EventHandler<AllWavesEndEventArgs> OnAllWavesEnd;
 
         private void Start()
         {
@@ -56,7 +50,6 @@ namespace DefaultNamespace
             }
 
             OnAllWavesEnd += (sender, args) => { Debug.Log(args); };
-            OnWaveEnd += (sender, args) => { Debug.Log(args); };
         }
 
         public void Update()
@@ -65,7 +58,7 @@ namespace DefaultNamespace
 
             float tmpTimer = waveTimer;
             int currentWaveIdx = 0;
-            while (tmpTimer > 0.0f)
+            while (tmpTimer >= 0.0f)
             {
                 if(currentWaveIdx >= _waves.Length) break;
 
@@ -86,16 +79,6 @@ namespace DefaultNamespace
                         if (spawnedEnemy.TryGetComponent(out Enemy enemy))
                         {
                             enemy.SetColor(currentWave.color);
-                        }
-
-                        if (currentWave.enemiesCounter == 0)
-                        {
-                            int wavesRemaining = 0;
-                            foreach (var wave in _waves)
-                            {
-                                if (wave.enemiesCounter != 0) wavesRemaining+=1;
-                            }
-                            OnWaveEnd?.Invoke(this, new WaveEndEventArgs(){ wavesLeft = wavesRemaining});
                         }
                     }
                 }

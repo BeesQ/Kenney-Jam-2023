@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,6 +28,8 @@ public class GameManager : Singleton<GameManager>
     public Transform spawnRingCenter;
     public float spawnRingRadius;
 
+    [SerializeField] private WaveSystem _waveSystem;
+
     // Spawned Players
     private List<PlayerController> activePlayerControllers;
     private PlayerController focusedPlayerController;
@@ -33,12 +37,12 @@ public class GameManager : Singleton<GameManager>
     // Level
     public bool IsLevelComplete { get; private set; }
 
-
-    IEnumerator Start()
+    private void Start()
     {
-        yield return new WaitForSeconds(3);
-        IsLevelComplete = true;
-        // SetupBasedOnGameState();
+        _waveSystem.OnAllWavesEnd += (sender, args) =>
+        {
+            IsLevelComplete = true;
+        };
     }
 
     private void Update()
